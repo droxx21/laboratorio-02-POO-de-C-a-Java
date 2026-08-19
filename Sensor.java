@@ -2,9 +2,9 @@ package AgroTech;
 
 public abstract class Sensor {
  
-    private String id;
+    private final String id;
     private String ubicacion;
-    private boolean activo;
+    private volatile boolean activo;
 
     public Sensor(String id, String ubicacion, boolean activo) {
         this.id = id;
@@ -19,17 +19,18 @@ public abstract class Sensor {
     public String getId() {
         return id;
     }
-
-    public void setId(String id) {
-        this.id = id;
-    }
     
     public String getUbicacion() {
         return ubicacion;
     }
 
-    public void setUbicacion(String ubicacion) {
-        this.ubicacion = ubicacion;
+    public void reubicarSensor(String nuevaUbicacion) {
+        if (!this.activo) {
+            this.ubicacion = nuevaUbicacion;
+            System.out.println("Sensor reubicado con éxito a: " + nuevaUbicacion);
+        } else {
+            System.out.println("No se puede mover un sensor mientras está activo.");
+        }
     }
     
     public boolean isActivo() {

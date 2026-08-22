@@ -8,7 +8,7 @@ public class SensorTemperatura extends Sensor {
 
     public SensorTemperatura(String id, String ubicacion, boolean activo, double celsius) {
         super(id, ubicacion, activo);
-        this.celsius = tomarLectura();
+        this.celsius = 0.0;
     }
 
     @Override

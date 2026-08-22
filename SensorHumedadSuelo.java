@@ -8,7 +8,7 @@ public class SensorHumedadSuelo extends Sensor {
 
     public SensorHumedadSuelo(String id, String ubicacion, boolean activo, double humedadPct) {
         super(id, ubicacion, activo);
-        this.humedadPct = tomarLectura();
+        this.humedadPct = 0.0;
     }
 
     @Override
